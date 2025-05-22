@@ -13,6 +13,7 @@ async function bootstrap() {
   const port = configService.get("port")
   const config = new DocumentBuilder()
     .setTitle("SwaggerNestTest")
+    .addTag("API")
     .build()
 
   const document = SwaggerModule.createDocument(app, config)

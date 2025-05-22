@@ -18,7 +18,7 @@ export class UserService {
 
     async findUserByEmail(email: string) {
         return this.userRepository.findOne({
-            where: { email: email },
+            where: { email },
             raw: true
         })
     }
@@ -31,5 +31,12 @@ export class UserService {
             password: hashedPassword
         })
         return dto
+    }
+
+    async publicUser(email: string) {
+        return await this.userRepository.findOne({
+            where: { email },
+            attributes: { exclude: ['password'] },
+        })
     }
 }
