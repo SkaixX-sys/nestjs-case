@@ -16,3 +16,16 @@ export class CreateUserDTO {
     @ApiProperty()
     password: string
 }
+
+
+export class UpdateUserDTO {
+    
+    @ApiProperty()
+    @IsString()
+    login: string
+
+    @IsString()
+    @ApiProperty()
+    @IsEmail()
+    email: string
+}
